@@ -632,11 +632,15 @@ section,
   width: 100%;
   min-height: 100vh;
   position: relative;
-  padding: 180px 0 200px 0; /*used this to change the size of the hero section*/
+  padding: 180px 0 75px 0; /*used this to change the size of the hero section*/
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, 0);
   background-size: 100%;
+}
+
+.hero .client_logo {
+    width: 50%;
 }
 
 .hero:before {
@@ -797,6 +801,37 @@ section,
     text-align: left;
 }
 
+.hero h3 {
+    color: rgb(255 255 255 / 88%);
+    font-size: 31px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero .client_title_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 130px;
+    /*border-bottom: 3px solid rgba(255,255,255,0.04);*/
+}
+
+.hero .client_logos_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero .client_logo {
+    height: 50px;
+    width: auto;
+    margin: 0px 55px 30px 55px;
+    opacity: 0.35;
+}
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
@@ -1032,6 +1067,166 @@ section,
 }
 
 /*--------------------------------------------------------------
+# clients Section
+--------------------------------------------------------------*/
+.clients {
+    background-color: transparent;
+}
+
+.clients .clients-item {
+  color: #ffffff; /*color-mix(in srgb, var(--default-color), transparent 20%);*/
+  background-color: rgba(0, 0, 0, 0.5); /*var(--background-color);*/
+  border-radius: 40px;
+  padding: 5px 10px 0px 15px;
+  box-shadow: 6px 7px 10px 0px rgb(0 0 0 / 22%);
+}
+
+.clients .clients-item+.clients-item {
+  margin-top: 45px;
+}
+
+@media (max-width: 640px) {
+  .clients .clients-item+.clients-item {
+    margin-top: 40px;
+  }
+}
+
+.clients .clients-item h3 {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.clients .clients-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.clients .clients-item ul li {
+  padding-bottom: 0px;
+  display: flex;
+  align-items: baseline;
+}
+
+.clients .clients-item ul li:last-child {
+  padding-bottom: 0;
+}
+
+.clients .clients-item ul i {
+  font-size: 25px;
+  padding-right: 7px;
+  color: var(--accent-color);
+  /*transform: scaleY(0.5);*/
+}
+
+.clients .clients-item p:last-child {
+  margin-bottom: 0;
+}
+
+.clients .col-md-5 {
+    margin-bottom: var(--bs-gutter-y); /* Replace with your desired margin */
+}
+
+.clients .col-md-7 {
+    margin-top: calc(var(--bs-gutter-y)*.4);
+    margin-bottom: calc(var(--bs-gutter-y)*.2);
+}
+
+.clients .bi-check::before {
+    content: "\2022";
+}
+
+.clients .bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
+    vertical-align: -0.125em;
+}
+
+.clients .image-container {
+    width: 100%;  /* Set the desired width of the div */
+    height: 270px; /* Set the desired height of the div */
+    overflow: hidden; /* Hide the part of the image that overflows the div */
+    position: relative; /* Required for positioning the image */
+    border-radius: 20px;
+}
+
+.clients .image-container img {
+    width: 100%;  /* Make the image take the full width of the div */
+    height: 100%; /* Make the image take the full height of the div */
+    object-fit: cover; /* Crop the image to fill the div, maintaining aspect ratio */
+    position: absolute; /* Positioning to ensure full control over the image */
+    bottom: 0px;
+    left: 0;
+    /*transform: scale(1);*/
+}
+
+@media (min-width: 768px) {
+    .col-md-7 {
+        width: 30%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-5 {
+        flex: 0 0 auto;
+        width: 70%;
+    }
+}
+
+.clients .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background-color: rgba(55, 104, 153, 0.8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10; /* Makes sure the overlay is above the image */
+}
+
+.clients .button-test {
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(55, 104, 153);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+
+}
+
+.services-button {
+  cursor: pointer;
+  user-select: none; /* Prevents text selection */
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  height: 40px;
+  color: white;
+  background-color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-top: 23px;
+}
+
+.services-button:hover {
+  background-color: rgb(75, 124, 173); /* Darken the color on hover */
+}
+
+.services-button:active {
+  background-color: rgb(65, 114, 163); /* Even darker on click */
+}
+
+.clients .fst-italic {
+    margin-bottom: 0.65rem;
+}
+
+/*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
 .features .features-item {
@@ -1252,17 +1447,19 @@ section,
 /*--------------------------------------------------------------
 # Main Gallery Section
 --------------------------------------------------------------*/
+
 .main_gallery {
-  overflow: hidden;
-  background-color: rgb(74 53 85 / 85%);
+  background-color: rgb(63 54 95 / 83%);
+
 }
 
 .main_gallery .swiper-wrapper {
   height: auto;
+  margin-top: -50px;
 }
 
 .main_gallery .swiper-pagination {
-  margin-top: 40px;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -1291,10 +1488,15 @@ section,
     border: none;
     padding: 4px;
     z-index: 1;
-    transform: scale(1.2);
+    transform: scale(1.05);
     transition: all ease-in-out 0.8s;
   }
 }
+
+.gallery .img-fluid {
+    margin-bottom: 30px;
+}
+
 
 /*--------------------------------------------------------------
 # Testimonials Section
